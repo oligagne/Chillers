@@ -1,0 +1,174 @@
+/* CSS Document //TD{font-size: 13px;}*/
+.pool {
+	
+	background-color:black;
+	
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+
+}
+
+body{
+	background-image:url("bgChillers.gif");
+	background-color:black;
+	background-repeat:no-repeat;
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	}
+
+A.pool{COLOR: red; TEXT-DECORATION: none; font-family: Verdana;font-size: 10px}
+A:hover{COLOR: #F3BD01; TEXT-DECORATION: none}
+
+A{COLOR: black; TEXT-DECORATION: underline; font-family: Verdana;font-size: 10px}
+
+.leftAling
+{
+	text-align: left;
+}
+
+.rightAling
+{
+	text-align: right;
+}
+.tabHeader
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #000000;
+	background-color: #F3BD01;
+	text-align: center;
+}
+
+.tabStars 
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	text-align: left;
+	
+	position: absolute;
+	width:383px;
+
+	left: 180px;
+	top:122px;
+	
+}
+
+.tabMatchs
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	text-align: left;
+	
+	position: absolute;
+	width:449px;
+	height:200px;
+	left: 170px;
+	top:233px;
+
+}
+
+.stats
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 13px;
+	font-weight: bold;
+	color: #000000;
+	background-color: #F3BD01;
+	
+	position: absolute;
+	width:449px;
+	height:50px;
+	left: 170px;
+	top:686px;
+
+}
+
+.tabPlayers
+{
+		
+	position: absolute;
+	width:449px;
+	height:600px;
+	left: 170px;
+	top:369px;
+}
+
+.tabChillers
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	text-align: center;
+
+
+}
+
+.class2 A:hover {text-decoration: none; color: black;}
+
+.tabComments
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	position: absolute;
+	width:365px;
+	height:434px;
+	left: 635px;
+	top:325px;
+
+}
+
+.tabCommentsScroll
+{
+	width:360px;
+	height:125px;
+	overflow:auto;
+}
+
+.tabComments p
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	padding:0 0 0px 0px;
+	margin: 0 0 0 0;
+	vertical-align: text-top;
+	
+}
+
+.tabComments h1
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 10px;
+	padding:0 0 0px 0px;
+	margin: 0 0 0 0;
+}
+
+#back {
+	position: absolute;
+	width : 12px;
+	height: 21px;
+	left: 535px;
+	top: 208px;
+
+	background-repeat: no-repeat;
+	}
+#next 
+{
+position: absolute;
+width : 12px;
+height: 21px;
+left: 595px;
+top: 208px;
+border-width:medium;
+background-repeat: no-repeat;
+}
+
+.ptsBack
+{
+	font-family: Arial, Helvetica, sans-serif;
+	font-size: 11px;
+	font-weight: bold;
+	color: #F3BD01;
+}

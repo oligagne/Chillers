@@ -1,0 +1,84 @@
+<!DOCTYPE html>
+<html>
+	<head>		
+		<META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
+		<title>Chillers Hockey</title>
+		<meta name="viewport" content="width=device-width, initial-scale=1"> 
+		<!-- Responsive version 2013-01-21 jmobile 1.3 -->
+		<link rel="stylesheet" href="http://code.jquery.com/mobile/1.3.0-beta.1/jquery.mobile-1.3.0-beta.1.min.css" /> 
+		<script src="http://code.jquery.com/jquery-1.8.3.min.js"></script>
+		<script src="http://code.jquery.com/mobile/1.3.0-beta.1/jquery.mobile-1.3.0-beta.1.min.js"></script>
+		
+		<link rel="stylesheet" href="themes/chillersMobile.min.css" />
+	</head>
+	<body>
+		<div data-role="page" data-theme="a">
+			<div data-role="header">
+                <a href='#' class='ui-btn-left' data-icon='arrow-l' onclick="history.back(); return false">Back</a>
+				<h1>Stats</h1>
+			</div>
+			<div data-role="content" data-theme="a">
+				<table data-role="table" id="movie-table" data-mode="reflow" class="ui-responsive table-stroke">
+					<thead>
+						<tr>
+							<th data-priority="6">Numéro</th>
+							<th data-priority="1">Nom</th>
+							<th data-priority="2">PJ</th>
+							<th data-priority="3">Buts</th>
+							<th data-priority="4">Ass</th>
+							<th data-priority="persist">PTS</th>
+							<th data-priority="5">Pun</th>							
+						</tr>		
+					</thead>	
+					<?php
+						require_once("../classes/CChillers.php");
+						$chill = new chillersDB;
+						$allRow = $chill->GetAllChillersExceptG(2012);
+						$chill->dbCat->next_record(); 
+						$rows = $chill->dbCat->num_rows();
+						
+						for($i=0; $i<$rows; $i++)
+						{	
+							echo "<tr>";
+								echo "<th>#" . $chill->dbCat->Record["j_number"] . "</th>";
+								echo "<td>"	 . $chill->dbCat->Record["j_name"] . "</td>";
+								echo "<td>". $chill->dbCat->Record["j_pj"] . "</td>";
+								echo "<td>" . $chill->dbCat->Record["j_but"] . "</td>";
+								echo "<td>" . $chill->dbCat->Record["j_ass"] . "</td>";
+								echo "<td  class=ptsBack>" . $chill->dbCat->Record["j_pts"] . "</td>";
+								echo "<td>". $chill->dbCat->Record["j_minutesPun"] . "</td>";
+							echo "</tr>";
+							
+							$chill->dbCat->next_record();
+						}
+					?>
+					<tr><td><b>Numéro</b></td><th>Gardien</th><td><b>PJ</b></td><td><b>Buts</b></td><td><b>Ass</b></td><td colspan="2"><b>Moyenne</b></td></tr>
+					<?php
+						$allRow = $chill->GetGoaler(2012);
+						$chill->dbCat->next_record(); 
+						$z = $chill->dbCat->num_rows();
+						for($i=0; $i<$z; $i++)
+						{
+							$moyen = 0;
+							if ( $chill->dbCat->Record["j_pj"] != 0 )
+							{
+								$moyen = $chill->dbCat->Record["j_but"] /  $chill->dbCat->Record["j_pj"];
+							}
+							
+							echo "<tr>";
+								echo "<th>#" . $chill->dbCat->Record["j_number"] . "</th>";
+								echo "<td>"	 . $chill->dbCat->Record["j_name"] . "</td>";
+								echo "<td>". $chill->dbCat->Record["j_pj"] . "</td>";
+								echo "<td>". $chill->dbCat->Record["j_but"] . "</td>";
+								echo "<td>".  $chill->dbCat->Record["j_ass"] . "</td>";
+								echo "<td colspan=2 align=center>" . round($moyen,3) . "</td>";
+							echo "</tr>";
+							
+							$chill->dbCat->next_record();
+						}						
+					?>
+				</TABLE>				
+			</div>
+		</div>
+	</body>
+</html>
