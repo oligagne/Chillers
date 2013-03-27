@@ -30,26 +30,26 @@
 				<tbody>				
 					<?php
 						require_once("../classes/CChillers.php");
-						$chill = new chillersDB;
-						$allRow = $chill->GetAllMatchs(2012,2013);
-						$z = $chill->dbCat->num_rows();
-						if ( $z > 0 )
+						$chillers = new chillersDB;
+						$allRow = $chillers->GetAllMatchs(2012,2013);
+						$nbGames = $chillers->dbCat->num_rows();
+						if ( $nbGames > 0 )
 						{
-							$z = $chill->dbCat->num_rows();
+							$nbGames = $chillers->dbCat->num_rows();
 						}
-						$chill->dbCat->next_record(); 
-						$gameDate = new DateTime($chill->dbCat->Record["c_date"]);
+						$chillers->dbCat->next_record(); 
+						$gameDate = new DateTime($chillers->dbCat->Record["c_date"]);
 						
-						for($i=0; $i<$z; $i++)
+						for($i=0; $i<$nbGames; $i++)
 						{	
 							echo "<tr>";
-							echo 	"<th>". $chill->dbCat->Record["c_date"] . "</th>";
-							echo 	"<td>" . substr($chill->dbCat->Record["c_hrs"],0,5) . "</td>";
-							echo	"<td>". $chill->dbCat->Record["c_glace"] . "</td>";
-							echo	"<td>Chillers [" . $chill->dbCat->Record["c_chillersBut"] . "]</td>";
-							echo	"<td>" .  $chill->dbCat->Record["c_visiteur"] . " [" . $chill->dbCat->Record["c_visiteurBut"]  .   "]</td>";
+							echo 	"<th>". $chillers->dbCat->Record["c_date"] . "</th>";
+							echo 	"<td>" . substr($chillers->dbCat->Record["c_hrs"],0,5) . "</td>";
+							echo	"<td>". $chillers->dbCat->Record["c_glace"] . "</td>";
+							echo	"<td>Chillers [" . $chillers->dbCat->Record["c_chillersBut"] . "]</td>";
+							echo	"<td>" .  $chillers->dbCat->Record["c_visiteur"] . " [" . $chillers->dbCat->Record["c_visiteurBut"]  .   "]</td>";
 							echo "</tr>";
-							$chill->dbCat->next_record();
+							$chillers->dbCat->next_record();
 						}
 					?>
 				</tbody>

@@ -32,49 +32,49 @@
 					</thead>	
 					<?php
 						require_once("../classes/CChillers.php");
-						$chill = new chillersDB;
-						$allRow = $chill->GetAllChillersExceptG(2012);
-						$chill->dbCat->next_record(); 
-						$rows = $chill->dbCat->num_rows();
+						$chillers = new chillersDB;
+						$allRow = $chillers->GetAllChillersExceptG(2012);
+						$chillers->dbCat->next_record(); 
+						$rows = $chillers->dbCat->num_rows();
 						
 						for($i=0; $i<$rows; $i++)
 						{	
 							echo "<tr>";
-								echo "<th>#" . $chill->dbCat->Record["j_number"] . "</th>";
-								echo "<td>"	 . $chill->dbCat->Record["j_name"] . "</td>";
-								echo "<td>". $chill->dbCat->Record["j_pj"] . "</td>";
-								echo "<td>" . $chill->dbCat->Record["j_but"] . "</td>";
-								echo "<td>" . $chill->dbCat->Record["j_ass"] . "</td>";
-								echo "<td  class=ptsBack>" . $chill->dbCat->Record["j_pts"] . "</td>";
-								echo "<td>". $chill->dbCat->Record["j_minutesPun"] . "</td>";
+								echo "<th>#" . $chillers->dbCat->Record["j_number"] . "</th>";
+								echo "<td>"	 . $chillers->dbCat->Record["j_name"] . "</td>";
+								echo "<td>". $chillers->dbCat->Record["j_pj"] . "</td>";
+								echo "<td>" . $chillers->dbCat->Record["j_but"] . "</td>";
+								echo "<td>" . $chillers->dbCat->Record["j_ass"] . "</td>";
+								echo "<td  class=ptsBack>" . $chillers->dbCat->Record["j_pts"] . "</td>";
+								echo "<td>". $chillers->dbCat->Record["j_minutesPun"] . "</td>";
 							echo "</tr>";
 							
-							$chill->dbCat->next_record();
+							$chillers->dbCat->next_record();
 						}
 					?>
 					<tr><td><b>Numéro</b></td><th>Gardien</th><td><b>PJ</b></td><td><b>Buts</b></td><td><b>Ass</b></td><td colspan="2"><b>Moyenne</b></td></tr>
 					<?php
-						$allRow = $chill->GetGoaler(2012);
-						$chill->dbCat->next_record(); 
-						$z = $chill->dbCat->num_rows();
+						$allRow = $chillers->GetGoaler(2012);
+						$chillers->dbCat->next_record(); 
+						$z = $chillers->dbCat->num_rows();
 						for($i=0; $i<$z; $i++)
 						{
 							$moyen = 0;
-							if ( $chill->dbCat->Record["j_pj"] != 0 )
+							if ( $chillers->dbCat->Record["j_pj"] != 0 )
 							{
-								$moyen = $chill->dbCat->Record["j_but"] /  $chill->dbCat->Record["j_pj"];
+								$moyen = $chillers->dbCat->Record["j_but"] /  $chillers->dbCat->Record["j_pj"];
 							}
 							
 							echo "<tr>";
-								echo "<th>#" . $chill->dbCat->Record["j_number"] . "</th>";
-								echo "<td>"	 . $chill->dbCat->Record["j_name"] . "</td>";
-								echo "<td>". $chill->dbCat->Record["j_pj"] . "</td>";
-								echo "<td>". $chill->dbCat->Record["j_but"] . "</td>";
-								echo "<td>".  $chill->dbCat->Record["j_ass"] . "</td>";
+								echo "<th>#" . $chillers->dbCat->Record["j_number"] . "</th>";
+								echo "<td>"	 . $chillers->dbCat->Record["j_name"] . "</td>";
+								echo "<td>". $chillers->dbCat->Record["j_pj"] . "</td>";
+								echo "<td>". $chillers->dbCat->Record["j_but"] . "</td>";
+								echo "<td>".  $chillers->dbCat->Record["j_ass"] . "</td>";
 								echo "<td colspan=2 align=center>" . round($moyen,3) . "</td>";
 							echo "</tr>";
 							
-							$chill->dbCat->next_record();
+							$chillers->dbCat->next_record();
 						}						
 					?>
 				</TABLE>				
