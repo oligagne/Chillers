@@ -3,6 +3,10 @@
 <TITLE>Chillers</TITLE>
 <META HTTP-EQUIV="Content-Type" CONTENT="text/html; charset=iso-8859-1">
 <link href="chillers.css" rel="stylesheet" type="text/css">
+<link rel="image_src" href="http://chillershockey.org/logo.jpg" />
+<meta property="og:image" content="http://chillershockey.org/logo.jpg"/>
+<meta property="og:title" content="Chillers Hockey"/>
+<meta property="og:url" content="http://chillershockey.org/index.php"/>
 </HEAD>
 <body style="overflow:auto">
 <?php
@@ -14,6 +18,7 @@
 	{		
 		header('Location:http://www.chillershockey.org/mobile/');
 	}
+	date_default_timezone_set('America/Montreal');
 	
 	require_once("classes/CChillers.php");
 	$chillers = new chillersDB;
@@ -174,7 +179,7 @@
 			<TD WIDTH=1></TD><TD WIDTH=179>Nom</TD><TD WIDTH=50>PJ</TD><TD WIDTH=50>Buts</TD><TD WIDTH=50>Ass</TD><TD WIDTH=50>PTS</TD><TD WIDTH=50>Pun</TD>
 		</TR>
 		<?php
-			$allRow = $chillers->GetAllChillersExceptG(2012);
+			$allRow = $chillers->GetAllChillersExceptG(2013);
 			$chillers->dbCat->next_record(); 
 			$nbPlayers = $chillers->dbCat->num_rows();
 			for($i=0; $i<$nbPlayers; $i++)
@@ -189,7 +194,7 @@
 			<TD></TD><TD WIDTH=179>Nom</TD><TD WIDTH=50>PJ</TD><TD WIDTH=50>Buts</TD><TD WIDTH=50>Ass</TD><TD colspan="2" width="170" align="center">Moyenne</TD>
 		</TR>
 		<?php
-			$allRow = $chillers->GetGoaler(2012);
+			$allRow = $chillers->GetGoaler(2013);
 			$chillers->dbCat->next_record(); 
 			$nbGoaler = $chillers->dbCat->num_rows(); //hope only one :)
 			for($i=0; $i<$nbGoaler; $i++)

@@ -36,13 +36,13 @@ class chillersDB
 	
 	function GetAllChillers($year)
 	{//
-		$getAllC = "SELECT  * FROM c_players WHERE j_annee = '" . $year . "' AND  j_actif <> false  ORDER BY j_pts desc, j_but desc";
+		$getAllC = "SELECT  * FROM c_players WHERE j_annee = '" . $year . "' AND  j_actif <> false  ORDER BY j_pts desc, j_pj, j_but desc";
 		return $this->dbCat->query($getAllC);
 	}
 	
 	function GetAllChillersExceptG($year)
 	{
-		$getAllC = "SELECT  * FROM c_players WHERE j_annee = '" . $year . "' AND j_actif <> false AND j_position <> 'Goaler' ORDER BY j_pts desc, j_but desc, j_pj";
+		$getAllC = "SELECT  * FROM c_players WHERE j_annee = '" . $year . "' AND j_actif <> false AND j_position <> 'Goaler' ORDER BY j_pts desc, j_pj, j_but desc";
 		return $this->dbCat->query($getAllC);
 	}
 	
